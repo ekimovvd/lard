@@ -144,21 +144,27 @@ const tariffCards: TariffCardParams[] = [
     display: flex;
     flex-direction: column;
     row-gap: 28px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin: 0 -80px;
+    padding: 0 80px;
 
     @media screen and (max-width: 649px) {
+      padding: 0;
+      margin: 0;
       row-gap: 16px;
+      overflow-x: initial;
     }
   }
 
   &__list {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     align-items: stretch;
-    justify-content: center;
-    flex-flow: row wrap;
-    flex-wrap: wrap;
     gap: 20px;
 
     @media screen and (max-width: 649px) {
+      grid-template-columns: 1fr;
       gap: 16px;
     }
   }

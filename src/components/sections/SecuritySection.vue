@@ -22,11 +22,26 @@
 
       <div class="security-section__wrapper">
         <ul class="security-section__list">
-          <SecurityCard
+          <li
             v-for="(item, index) in securityCards"
             :key="index"
-            :card="item"
-          />
+          >
+            <Popper class="popper" :arrow="true" :hover="true" placement="bottom">
+              <SecurityCard :card="item" />
+
+              <template #content>
+                <div class="popper__content">
+                  <h6 class="popper__title">
+                    {{ item.tooltipTitle }}
+                  </h6>
+
+                  <p class="popper__description">
+                    {{ item.tooltipText }}
+                  </p>
+                </div>
+              </template>
+            </Popper>
+          </li>
         </ul>
 
         <UiButton
@@ -62,27 +77,39 @@ import { scrollToElementById } from '../../utils/scroll-to-element'
 const securityCards: SecurityCardParams[] = [
   {
     title: 'VPN',
-    description: 'Виртуальная частная сеть'
+    description: 'Виртуальная частная сеть',
+    tooltipTitle: 'Защищенные сети любого масштаба',
+    tooltipText: 'Обеспечьте онлайн-безопасность своей компании с нашим VPN-сервисом и забудьте о кибератаках и утечках данных.'
   },
   {
     title: 'MAIL',
-    description: 'Безопасная корпоративная почта'
+    description: 'Безопасная корпоративная почта',
+    tooltipTitle: 'Безопасная почта с вашим доменом<',
+    tooltipText: 'Гарантируйте сотрудникам и клиентам надежное шифрование переписки, настраиваемый и отслеживаемый доступ и защиту от вирусов и спама.'
   },
   {
     title: 'Messenger',
-    description: 'Непробиваемая связь'
+    description: 'Непробиваемая связь',
+    tooltipTitle: 'Защищенные сообщения, звонки и передача файлов',
+    tooltipText: 'Обеспечьте непробиваемую корпоративную связь с нашим мессенджером на базе приложения Element — с шифрованием, защитой от проникновения и безопасной передачей файлов.'
   },
   {
     title: 'MDM',
-    description: 'Управление мобильными устройствами'
+    description: 'Управление мобильными устройствами',
+    tooltipTitle: 'Полный контроль над мобильными устройствами компании',
+    tooltipText: 'Управляйте всеми мобильными устройствами организации: устанавливайте и удаляйте приложения, отслеживайте активность и настраивайте доступ.'
   },
   {
     title: 'DLP',
-    description: 'Защита от внутренних угроз'
+    description: 'Защита от внутренних угроз',
+    tooltipTitle: 'Управление всеми корпоративными устройствами и системами',
+    tooltipText: 'Предотвращайте и блокируйте попытки передачи данных и анализируйте действия пользователей, переписки и активность подключенных устройств.'
   },
   {
     title: 'Self-hosted Cloud',
-    description: 'Личное облако для работы с данными'
+    description: 'Личное облако для работы с данными',
+    tooltipTitle: 'Личное облако для работы с данными',
+    tooltipText: 'Работайте с документами в браузере из любой точки мира и синхронизируйте данные между разными устройствами, не сомневаясь в надежности шифрования информации.'
   }
 ]
 </script>
@@ -167,6 +194,7 @@ const securityCards: SecurityCardParams[] = [
     flex-flow: row wrap;
     flex-wrap: wrap;
     gap: 20px;
+    list-style: none;
   }
 
   &__button {

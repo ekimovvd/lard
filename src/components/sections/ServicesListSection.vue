@@ -11,7 +11,7 @@
           class="services-list-section__item"
         >
           <div class="services-list-section__icon">
-            <component :is="item.icon" />
+            <div class="services-list-section__image" />
           </div>
 
           <p class="services-list-section__text">
@@ -24,33 +24,15 @@
 </template>
 
 <script setup lang="ts">
-import ServerIcon from '../icons/ServerIcon.vue'
-import FileIcon from '../icons/FileIcon.vue'
-import UserIcon from '../icons/UserIcon.vue'
-import DataflowIcon from '../icons/DataflowIcon.vue'
-
 interface ServiceCardParams {
-  icon: any
   title: string
 }
 
 const serviceCards: ServiceCardParams[] = [
-  {
-    icon: ServerIcon,
-    title: 'Предоставим удалённый сервер'
-  },
-  {
-    icon: FileIcon,
-    title: 'Перенесём IT-инфраструктуру и данные в безопасное место'
-  },
-  {
-    icon: UserIcon,
-    title: 'Возьмём на контроль учётные записи сотрудников'
-  },
-  {
-    icon: DataflowIcon,
-    title: 'Зашифруем каналы передачи данных'
-  }
+  { title: 'Предоставим удалённый сервер' },
+  { title: 'Перенесём IT-инфраструктуру и данные в безопасное место' },
+  { title: 'Возьмём на контроль учётные записи сотрудников' },
+  { title: 'Зашифруем каналы передачи данных' }
 ]
 </script>
 
@@ -121,8 +103,76 @@ const serviceCards: ServiceCardParams[] = [
       border-right: none;
     }
 
+    &:nth-child(1) {
+      .services-list-section {
+        &__image {
+          background-image: url('../../assets/icons/server.svg');
+        }
+      }
+
+      &:hover {
+        .services-list-section {
+          &__image {
+            background-image: url('../../assets/icons/server-gradient.svg');
+          }
+        }
+      }
+    }
+
+    &:nth-of-type(2) {
+      .services-list-section {
+        &__image {
+          background-image: url('../../assets/icons/user.svg');
+        }
+      }
+
+      &:hover {
+        .services-list-section {
+          &__image {
+            background-image: url('../../assets/icons/user-gradient.svg');
+          }
+        }
+      }
+    }
+
+    &:nth-of-type(3) {
+      .services-list-section {
+        &__image {
+          background-image: url('../../assets/icons/file.svg');
+        }
+      }
+
+      &:hover {
+        .services-list-section {
+          &__image {
+            background-image: url('../../assets/icons/file-gradient.svg');
+          }
+        }
+      }
+    }
+
+    &:nth-of-type(4) {
+      .services-list-section {
+        &__image {
+          background-image: url('../../assets/icons/data.svg');
+        }
+      }
+
+      &:hover {
+        .services-list-section {
+          &__image {
+            background-image: url('../../assets/icons/data-gradient.svg');
+          }
+        }
+      }
+    }
+
     &:hover {
       .services-list-section {
+        &__icon {
+          background-color: #F0F4FB;
+        }
+
         &__text {
           color: #000F2B;
         }
@@ -143,6 +193,13 @@ const serviceCards: ServiceCardParams[] = [
     @media screen and (max-width: 650px) {
       padding: 11px 23px;
     }
+  }
+
+  &__image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 38px;
+    height: 38px;
   }
 
   &__text {

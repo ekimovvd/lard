@@ -283,6 +283,7 @@ onBeforeUnmount(() => {
     @media screen and (max-width: 649px) {
       padding: 16px;
       height: 68px;
+      border-radius: 0;
     }
   }
 

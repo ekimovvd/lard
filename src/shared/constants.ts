@@ -9,6 +9,8 @@ export interface TariffCardParams {
 export interface SecurityCardParams {
   title: string
   description: string
+  tooltipTitle: string
+  tooltipText: string
 }
 
 export interface FeatureCardParams {

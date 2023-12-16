@@ -20,13 +20,15 @@
         </div>
       </div>
 
-      <ul class="features-section__list">
-        <FeatureCard
-          v-for="(item, index) in featureCards"
-          :key="index"
-          :card="item"
-        />
-      </ul>
+      <div class="features-section__wrapper">
+        <ul class="features-section__list">
+          <FeatureCard
+            v-for="(item, index) in featureCards"
+            :key="index"
+            :card="item"
+          />
+        </ul>
+      </div>
     </div>
   </section>
 </template>
@@ -141,15 +143,27 @@ const featureCards: FeatureCardParams[] = [
     }
   }
 
+  &__wrapper {
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin: 0 -80px;
+    padding: 0 80px;
+
+    @media screen and (max-width: 649px) {
+      padding: 0;
+      margin: 0;
+      overflow-x: initial;
+    }
+  }
+
   &__list {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     align-items: stretch;
-    justify-content: center;
-    flex-flow: row wrap;
-    flex-wrap: wrap;
     gap: 20px;
 
     @media screen and (max-width: 649px) {
+      grid-template-columns: 1fr;
       gap: 16px;
     }
   }

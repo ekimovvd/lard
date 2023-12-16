@@ -27,16 +27,20 @@ defineProps<Props>()
   display: flex;
   flex-direction: column;
   row-gap: 16px;
-  flex-grow: 2;
+  width: 100%;
+  height: 100%;
   border-radius: 16px;
   border: 1px solid #EBEBEB;
   background-color: #F5F5F5;
-  padding: 24px 0 29px 20px;
-  max-width: 200px;
+  padding: 24px 15px 29px 20px;
+  min-height: 170px;
+  min-width: 160px;
 
   @media screen and (max-width: 649px) {
     padding: 16px 8px 16px 16px;
     row-gap: 14px;
+    min-width: 130px;
+    min-height: 120px;
   }
 
   &__title {

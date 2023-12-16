@@ -71,8 +71,7 @@ const isCardViewExtra = computed(() => props.card.view === 'extra')
 .feature-card {
   border-radius: 16px;
   padding: 24px 28px;
-  flex-grow: 2;
-  max-width: 360px;
+  min-width: 360px;
   display: flex;
   flex-direction: column;
   row-gap: 32px;
@@ -80,7 +79,8 @@ const isCardViewExtra = computed(() => props.card.view === 'extra')
   @media screen and (max-width: 649px) {
     row-gap: 16px;
     padding: 16px 12px 20px 16px;
-    max-width: initial;
+    width: 100%;
+    min-width: initial;
   }
 
   &--view {

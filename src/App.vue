@@ -26,7 +26,7 @@ import FooterSection from './components/sections/FooterSection.vue'
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .app-page {
   position: relative;
   width: 100%;

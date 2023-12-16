@@ -15,6 +15,8 @@
 </template>
 
 <script lang="ts" setup>
+import { defineProps } from 'vue'
+
 enum UiButtonView {
   default = 'default',
   extra = 'extra',

@@ -52,13 +52,14 @@ defineProps<Props>()
   background-color: #FFF;
   display: flex;
   flex-direction: column;
-  flex-grow: 2;
   row-gap: 32px;
-  max-width: 360px;
+  min-width: 360px;
 
   @media screen and (max-width: 649px) {
     padding: 16px;
     row-gap: 20px;
+    width: 100%;
+    min-width: initial;
   }
 
   &--view {
