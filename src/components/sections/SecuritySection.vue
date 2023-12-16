@@ -43,23 +43,23 @@
             </Popper>
           </li>
         </ul>
-
-        <UiButton
-          view="default"
-          size="large"
-          class="security-section__button"
-          :is-expanded="true"
-          @click="scrollToElementById('contacts')"
-        >
-          Попробовать
-
-          <img
-            src="../../assets/arrow.svg"
-            alt="arrow"
-            class="security-section__icon"
-          >
-        </UiButton>
       </div>
+
+      <UiButton
+        view="default"
+        size="large"
+        class="security-section__button"
+        :is-expanded="true"
+        @click="scrollToElementById('contacts')"
+      >
+        Попробовать
+
+        <img
+          src="../../assets/arrow.svg"
+          alt="arrow"
+          class="security-section__icon"
+        >
+      </UiButton>
     </div>
   </section>
 </template>
@@ -184,17 +184,34 @@ const securityCards: SecurityCardParams[] = [
   &__wrapper {
     display: flex;
     flex-direction: column;
-    row-gap: 48px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin: 0 -80px;
+    padding: 0 80px;
+    margin-bottom: -8px;
+
+    @media screen and (max-width: 649px) {
+      padding: 0;
+      margin: 0;
+      margin-bottom: -8px;
+      overflow-x: initial;
+    }
   }
 
   &__list {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
     align-items: stretch;
-    justify-content: center;
-    flex-flow: row wrap;
-    flex-wrap: wrap;
     gap: 20px;
     list-style: none;
+
+    @media screen and (max-width: 649px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (max-width: 480px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   &__button {

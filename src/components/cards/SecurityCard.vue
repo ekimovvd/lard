@@ -33,14 +33,18 @@ defineProps<Props>()
   border: 1px solid #EBEBEB;
   background-color: #F5F5F5;
   padding: 24px 15px 29px 20px;
-  min-height: 170px;
-  min-width: 160px;
+  min-height: 190px;
+  min-width: 190px;
 
   @media screen and (max-width: 649px) {
     padding: 16px 8px 16px 16px;
     row-gap: 14px;
-    min-width: 130px;
-    min-height: 120px;
+    width: 100%;
+    min-width: initial;
+  }
+
+  @media screen and (max-width: 480px) {
+    min-width: initial;
   }
 
   &__title {

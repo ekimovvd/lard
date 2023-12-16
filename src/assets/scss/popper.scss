@@ -4,6 +4,10 @@
   border: none !important;
   height: 100% !important;
 
+  &.inline-block {
+    width: 100%;
+  }
+
   &__content {
     background-color: #8424DE;
     border-radius: 10px;
