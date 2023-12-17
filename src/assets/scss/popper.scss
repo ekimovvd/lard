@@ -8,6 +8,13 @@
     width: 100%;
   }
 
+  & > div {
+    @media screen and (max-width: 649px) {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
   &__content {
     background-color: #8424DE;
     border-radius: 10px;

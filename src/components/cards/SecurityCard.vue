@@ -1,5 +1,5 @@
 <template>
-  <div class="security-card">
+  <span class="security-card">
     <p class="security-card__title">
       {{ card.title }}
     </p>
@@ -7,7 +7,7 @@
     <p class="security-card__text">
       {{ card.description }}
     </p>
-  </div>
+  </span>
 </template>
 
 <script setup lang="ts">
@@ -45,6 +45,7 @@ defineProps<Props>()
 
   @media screen and (max-width: 480px) {
     min-width: initial;
+    min-height: 110px;
   }
 
   &__title {
