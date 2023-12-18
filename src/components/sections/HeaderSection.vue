@@ -7,18 +7,23 @@
       class="header-section__container container-lg"
       :class="{ 'header-section__container--opened': isMenuMobileOpen }"
     >
-      <img
-        src="../../assets/logo.svg"
-        alt="logo"
-        class="header-section__logo"
+      <a
+        class="header-section__logo-link"
+        @click="scrollToElement('about')"
       >
+        <img
+          src="../../assets/logo.svg"
+          alt="logo"
+          class="header-section__logo"
+        >
+      </a>
 
       <nav class="header-section__list">
         <span
           v-for="(item, index) in navbarElements"
           :key="index"
           class="header-section__link"
-          @click="scrollToElement(item.href, item.offsetTop)"
+          @click="scrollToElement(item.href)"
         >
           {{ item.title }}
         </span>
@@ -43,7 +48,7 @@
           size="large"
           class="header-section__button"
           :is-expanded="true"
-          @click="scrollToElement('contacts', 50)"
+          @click="scrollToElement('contacts')"
         >
           Оставить заявку
         </UiButton>
@@ -74,38 +79,29 @@ import { Ref, ref, onMounted, onBeforeUnmount } from 'vue'
 import UiButton from '../ui/UiButton.vue'
 
 import { scrollLock } from '../../utils/scroll-lock'
+import { scrollToElementById } from '../../utils/scroll-to-element'
 
 interface NavbarElementParams {
   title: string
   href: string
-  offsetTop: number
-  mobileOffsetTop: number
 }
 
 const navbarElements: NavbarElementParams[] = [
   {
     title: 'Проблема',
     href: 'slider',
-    offsetTop: 145,
-    mobileOffsetTop: 0
   },
   {
     title: 'Как это работает',
     href: 'features',
-    offsetTop: 65,
-    mobileOffsetTop: 0
   },
   {
     title: 'Тарифы',
     href: 'tariffs',
-    offsetTop: 70,
-    mobileOffsetTop: 0
   },
   {
     title: 'Доп. услуги',
     href: 'security',
-    offsetTop: 90,
-    mobileOffsetTop: 0
   }
 ]
 
@@ -136,29 +132,14 @@ const toggleMenu = () => {
     scrollLock(isMenuMobileOpen.value)
 }
 
-const scrollToElement = (elementId: string, offset: number, device: string = 'desktop') => {
+const scrollToElement = (elementId: string, device: string = 'desktop') => {
   if (device === 'mobile' || isMenuMobileOpen.value) {
     toggleMenu()
   }
 
   isButtonPressed.value = true
 
-  const element = document.getElementById(elementId);
-
-  if (element) {
-    if (device === 'mobile') {
-      window.scrollTo({
-        top: element.offsetTop - offset,
-        behavior: 'smooth'
-      });
-    } else {
-      window.scrollTo({
-        top: element.offsetTop - offset,
-        behavior: 'smooth'
-      });
-    }
-  }
-
+  scrollToElementById(elementId)
   setTimeout(() => {
     isButtonPressed.value = false
   }, 500)
@@ -298,6 +279,10 @@ onBeforeUnmount(() => {
       width: 100%;
       max-width: 125px;
     }
+  }
+
+  &__logo-link {
+    cursor: pointer;
   }
 
   &__list {
