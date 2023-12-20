@@ -29,7 +29,7 @@
                 >
                   <a
                     class="footer-section__link"
-                    @click="scrollToElement(item.href)"
+                    @click="scrollToElementById(item.href)"
                   >
                     {{ item.title }}
                   </a>
@@ -105,6 +105,8 @@
 </template>
 
 <script setup lang="ts">
+import { scrollToElementById } from '../../utils/scroll-to-element'
+
 interface FooterLinkParams {
   title: string
   href: string
@@ -122,17 +124,6 @@ const secondFooterLinks: FooterLinkParams[] = [
   { title: 'IT - инфраструктура', href: 'https://lard.team/directions/it-infrastruktura' },
   { title: 'Информационная безопасность', href: 'https://lard.team/directions/bezopasnost-sistem-i-dannyh' }
 ]
-
-const scrollToElement = (elementId: string) => {
-    const element = document.getElementById(elementId);
-
-    if (element) {
-        window.scrollTo({
-            top: element.offsetTop - 50,
-            behavior: 'smooth'
-        });
-    }
-}
 </script>
 
 <style lang="scss" scoped>

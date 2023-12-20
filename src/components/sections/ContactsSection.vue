@@ -10,7 +10,7 @@
         </UiTag>
 
         <h2 class="contacts-section__title">
-          Оставьте заявку на заказ пакета услуг Lard Defender
+          Оставьте заявку на заказ пакета услуг Lard
         </h2>
       </div>
 

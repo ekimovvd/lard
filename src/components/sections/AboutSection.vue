@@ -108,7 +108,7 @@ function getQueryParams(): Record<string, string> {
     row-gap: 48px;
 
     @media screen and (max-width: 649px) {
-      row-gap: 24px;
+      row-gap: 32px;
     }
   }
 
@@ -138,6 +138,7 @@ function getQueryParams(): Record<string, string> {
     @media screen and (max-width: 649px) {
       font-size: 14px;
       line-height: 140%;
+      margin-top: -12px;
     }
   }
 
@@ -159,6 +160,10 @@ function getQueryParams(): Record<string, string> {
 
     @media screen and (max-width: 1024px) {
       max-width: 500px;
+    }
+
+    @media screen and (max-width: 649px) {
+      display: none;
     }
   }
 }
