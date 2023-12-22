@@ -80,8 +80,10 @@ const sliderCards: SliderCardParams[] = [
 const options = {
   rewind: true,
   gap: '1rem',
-  autoplay: true
-};
+  autoplay: true,
+  interval: 2500,
+  pauseOnHover: false
+}
 </script>
 
 <style lang="scss">

@@ -68,7 +68,6 @@ withDefaults(defineProps<Props>(), {
       }
 
       &:focus, &:active {
-        border: 5px solid #F5F5F5;
         background-color: #8C37DD;
       }
     }

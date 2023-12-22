@@ -6,10 +6,9 @@ export const scrollToElementById = (id: string): void => {
   }
 
   const { top } = currentElement.getBoundingClientRect()
-  const topWithOffset = top + window.pageYOffset
 
   window.scrollTo({
-    top: top > 0 ? topWithOffset + 80 : topWithOffset,
+    top: top + window.pageYOffset,
     behavior: 'smooth'
   });
 }
